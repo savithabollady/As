@@ -3,6 +3,20 @@
 data(RcmdrTestDrive)
 and perform the below operations:
 a. Calculate the average salary by gender and smoking status.
+> tapply(RcmdrTestDrive$salary, RcmdrTestDrive$gender, mean)
+  Female     Male 
+698.0911 743.3915 
+> tapply(RcmdrTestDrive$salary, RcmdrTestDrive$smoking, mean)
+Nonsmoker    Smoker 
+ 719.3792  746.3494 
+ 
 b. Which gender has the highest mean salary?
+- Male
 c. Report the highest mean salary.
+> mean(RcmdrTestDrive$salary[RcmdrTestDrive$gender== 'Male'])
+[1] 743.3915
 d. Compare the spreads for the genders by calculating the standard deviation of salary by gender.
+> y<-tapply(RcmdrTestDrive$salary,list(RcmdrTestDrive$gender == 'Female'),sd)
+> y
+   MALE     FEMALE 
+158.5423 130.7053 
